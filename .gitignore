@@ -1,0 +1,16 @@
+node_modules/
+*.log.*
+.idea/*
+dump.*
+.ssh/
+*.log
+package-lock.json
+.vscode/
+npm-debug.log
+.DS_Store
+config/development.json
+config/local.json
+config/production.json
+media/
+cassandra-test-volume/
+coverage/

@@ -1,0 +1,57 @@
+{
+  "applicationHost":"localhost",
+  "applicationPort": 3400,
+  "appHost":"localhost",
+  "jwt": {
+    "secret": "DEFAULT_SECRET_KEY",
+    "expires": "30d",
+    "expiresPasswordReset": "1h",
+    "max_count": 20
+  },
+  "notProtectedRoutes": [
+    "/auth/login"
+  ],
+  "secret_key": "default_secret_key",
+  "fileUploader": {
+    "useTempFiles": false,
+    "tempFileDir": "/tmp/",
+    "limits": { "fileSize": 3145728},
+    "safeFileNames": false,
+    "preserveExtension": true,
+    "parseNested": true
+  },
+  "log4jsConfig": {
+    "pm2":true,
+    "pm2InstanceVar":"INSTANCE_ID",
+    "appenders": {
+      "out": {
+        "type":"stdout"
+      },
+      "server": {
+        "type":"file",
+        "filename":"./logs/server.log"
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders":["out"],
+        "level":"trace"
+      },
+      "server": {
+        "appenders":["out","server"],
+        "level":"trace"
+      }
+    }
+  },
+  "mongoose": {
+    "connectionUrl":"mongodb://127.0.0.1:27017/TestDatabase?authSource=admin",
+    "options": {
+      "useFindAndModify": false,
+      "useCreateIndex": true,
+      "authSource": "admin",
+      "keepAlive": true,
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true
+    }
+  }
+}
